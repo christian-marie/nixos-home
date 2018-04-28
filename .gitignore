@@ -2,5 +2,5 @@
 *
 # Except this file
 !.gitignore
-!src/configuration.nix/configuration.nix/**
 !.Xdefaults
+!*/
