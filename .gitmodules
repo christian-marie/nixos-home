@@ -1,0 +1,3 @@
+[submodule "src/vendor/src/vendor/mutt-office365"]
+	path = src/vendor/src/vendor/mutt-office365
+	url = git@github.com:ork/mutt-office365.git
