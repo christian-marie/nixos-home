@@ -67,8 +67,8 @@ in {
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   boot = {
-    kernelParams = [ "acpi.ec_no_wakeup=1" ];
-    kernelModules = ["kvm_intel"];
+    kernelParams = [ "acpi.ec_no_wakeup=1 psmouse.synaptics_intertouch=1" ];
+    kernelModules = ["i2c_i801" "elan_i2c" "rmi_smbus"  "kvm_intel"];
     
     
     loader.grub = {
@@ -93,6 +93,10 @@ in {
     ];
   };
 
+  services.offlineimap = {
+    enable = true;
+    install = true;
+   };
   services.xserver = {
   	autorun = true;
 	displayManager.slim = {
@@ -115,12 +119,21 @@ in {
   hardware.trackpoint = {
   	enable = true;
 	sensitivity = 255;
+	speed = 200;
+	emulateWheel = true;
   };
 
   
   # powerManagement.cpuFreqGovernor = "ondemand";
   powerManagement.enable = true;
   services.tlp.enable = true;
+
+  services.redshift = {
+  	enable = true;
+	provider = "geoclue2";
+  };
+
+  hardware.enableAllFirmware = true;
   services.fprintd.enable = true;
         nixpkgs.config.packageOverrides = pkgs: {
         freetype_subpixel = pkgs.freetype.override {
