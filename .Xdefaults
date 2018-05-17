@@ -1,5 +1,5 @@
-urxvt*font: xft:Terminus:antialias=false
-urxvt*boldFont: xft:Terminus:antialias=false
+urxvt*font: xft:Terminus:antialias=true:size=40
+urxvt*boldFont: xft:Terminus:antialias=true:size=40
 urxvt*scrollBar: false
 
 
